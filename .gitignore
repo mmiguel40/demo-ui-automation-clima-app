@@ -1,0 +1,30 @@
+# Maven
+target/
+*.log
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test Reports & Logs
+test-output/
+extent-reports/
+screenshots/
+*.html
+*.pdf
+*.json
+cucumber-reports/
+logs/
+
+# Selenium Drivers (if local)
+drivers/
+chromedriver
+geckodriver

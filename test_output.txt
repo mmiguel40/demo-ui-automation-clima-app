@@ -1,0 +1,79 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.example:demo-ui-automation >-------------------
+[INFO] Building demo-ui-automation 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ demo-ui-automation ---
+[INFO] Deleting /Users/andersonluque/Documents/trae_projects/demo-ui-automation/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ demo-ui-automation ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ demo-ui-automation ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 5 source files with javac [debug target 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ demo-ui-automation ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ demo-ui-automation ---
+[INFO] Changes detected - recompiling the module! :dependency
+[INFO] Compiling 3 source files with javac [debug target 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.3:test (default-test) @ demo-ui-automation ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.example.automation.runners.TestRunner
+
+Scenario: Successful Login with Valid Credentials # src/test/resources/features/Login.feature:3
+SLF4J(W): No SLF4J providers were found.
+SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+ene. 13, 2026 8:24:34 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTENCIA: Unable to find CDP implementation matching 143
+ene. 13, 2026 8:24:34 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTENCIA: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.16.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  Given I am on the login page                    # com.example.automation.steps.LoginSteps.i_am_on_the_login_page()
+
+    Embedding step_screenshot [image/png 76325 bytes]
+
+  When I enter username "usuariodev"              # com.example.automation.steps.LoginSteps.i_enter_username(java.lang.String)
+      org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: username (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: '4.16.1', revision: '9b4c83354e'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.1', java.version: '17.0.16'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.193, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: /var/folders/fp/0kf42hk14sx...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56546}, goog:processID: 80998, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:56546/devtoo..., se:cdpVersion: 143.0.7499.193, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 40c39ad5bec817404e8b3574cf2ba11f
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:229)
+	at com.example.automation.pages.actions.LoginPage.enterUsername(LoginPage.java:15)
+	at com.example.automation.steps.LoginSteps.i_enter_username(LoginSteps.java:21)
+	at ✽.I enter username "usuariodev"(file:///Users/andersonluque/Documents/trae_projects/demo-ui-automation/src/test/resources/features/Login.feature:5)
+
+
+    Embedding step_screenshot [image/png 76325 bytes]
+
+  And I enter password "123"                      # com.example.automation.steps.LoginSteps.i_enter_password(java.lang.String)
+  And I click the login button                    # com.example.automation.steps.LoginSteps.i_click_the_login_button()
+  Then I should be logged in successfully         # com.example.automation.steps.LoginSteps.i_should_be_logged_in_successfully()
+
+    Embedding failure_screenshot [image/png 76325 bytes]
+
+
+Scenario: Successful Login with Configured Credentials # src/test/resources/features/Login.feature:10
+ene. 13, 2026 8:25:08 A. M. org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+ADVERTENCIA: Unable to find CDP implementation matching 143
+ene. 13, 2026 8:25:08 A. M. org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+ADVERTENCIA: Unable to find version of CDP to use for 143.0.7499.193. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.16.1` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+  Given I am on the login page                         # com.example.automation.steps.LoginSteps.i_am_on_the_login_page()
+
+    Embedding step_screenshot [image/png 76347 bytes]
+
+[INFO] 
+[INFO] Results:
+[INFO] 
