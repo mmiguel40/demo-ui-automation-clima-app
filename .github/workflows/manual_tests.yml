@@ -63,8 +63,8 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: extent-reports
-          path: target/extent-reports/
+          name: Reporte-HTML
+          path: target/extent-reports/SparkReport.html
           retention-days: 30
 
       - name: Notificar a Microsoft Teams (Adaptive Card)
@@ -185,7 +185,7 @@ jobs:
                       },
                       {
                         type: "TextBlock",
-                        text: ("📄 **Reporte HTML**: [Descargar desde Artefactos](" + $runUrl + ")"),
+                        text: ("📄 **Reporte**: El archivo **SparkReport.html** está listo. [Descargar Artefacto Reporte-HTML](" + $runUrl + ")"),
                         wrap: true,
                         size: "Medium"
                       },
