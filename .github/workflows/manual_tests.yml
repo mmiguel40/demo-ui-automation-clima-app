@@ -38,12 +38,12 @@ jobs:
       - name: Verificar Existencia del Reporte
         id: check_report
         run: |
-          if [ -f "target/extent-reports/PdfReport.pdf" ]; then
+          if [ -f "target/extent-reports/SparkReport.html" ]; then
             echo "report_exists=true" >> $GITHUB_OUTPUT
-            echo "Reporte PDF encontrado."
+            echo "Reporte HTML encontrado."
           else
             echo "report_exists=false" >> $GITHUB_OUTPUT
-            echo "::warning::Reporte PDF no encontrado. Verifica la configuración de ExtentReports."
+            echo "::warning::Reporte HTML no encontrado."
           fi
 
       - name: Subir Reportes como Artefacto
@@ -75,8 +75,8 @@ jobs:
             Repositorio: ${{ github.repository }}
             Ejecutado por: ${{ github.actor }}
 
-            Se adjunta el reporte PDF con los resultados detallados.
+            Se adjunta el reporte HTML con los resultados detallados.
 
             Saludos,
             Tu Bot de Automatización
-          attachments: target/extent-reports/PdfReport.pdf
+          attachments: target/extent-reports/SparkReport.html
