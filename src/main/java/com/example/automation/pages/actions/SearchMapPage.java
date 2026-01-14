@@ -24,11 +24,29 @@ public class SearchMapPage extends BasePage {
 
     public boolean isMapDisplayed() {
         try {
-            // Increase timeout for map loading in CI environments
-            new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(60))
+            // Initial attempt with short timeout
+            try {
+                new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(5))
+                        .until(ExpectedConditions.visibilityOfElementLocated(SearchMapLocators.MAP_CONTAINER));
+                return driver.findElement(SearchMapLocators.MAP_CONTAINER).isDisplayed();
+            } catch (Exception e) {
+                // Retry clicking search button (handling potential missed clicks or lack of
+                // reaction)
+                System.out.println("Map NOT found on first attempt, retrying search click...");
+                if (isSearchButtonEnabled()) {
+                    clickSearchButton();
+                }
+            }
+
+            // Second attempt with longer timeout
+            new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(30))
                     .until(ExpectedConditions.visibilityOfElementLocated(SearchMapLocators.MAP_CONTAINER));
             return driver.findElement(SearchMapLocators.MAP_CONTAINER).isDisplayed();
+
         } catch (Exception e) {
+            System.out.println("Map NOT found after retry. Current URL: " + driver.getCurrentUrl());
+            System.out.println("Page Source Snippet: "
+                    + driver.getPageSource().substring(0, Math.min(driver.getPageSource().length(), 2000)));
             return false;
         }
     }
