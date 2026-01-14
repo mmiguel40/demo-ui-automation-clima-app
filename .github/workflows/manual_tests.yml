@@ -59,11 +59,19 @@ jobs:
             echo "::warning::Reporte HTML no encontrado."
           fi
 
-      - name: Subir Reportes como Artefacto
+      - name: Subir Reporte Completo (ZIP)
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Reporte-HTML
+          name: Reporte-Completo-ZIP
+          path: target/extent-reports/
+          retention-days: 30
+
+      - name: Subir Solo HTML
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Reporte-HTML-Solo
           path: target/extent-reports/SparkReport.html
           retention-days: 30
 
@@ -185,7 +193,7 @@ jobs:
                       },
                       {
                         type: "TextBlock",
-                        text: ("📄 **Reporte**: El archivo **SparkReport.html** está listo. [Descargar Artefacto Reporte-HTML](" + $runUrl + ")"),
+                        text: ("📄 **Artefactos**: [Reporte HTML Solo] y [ZIP Completo] disponibles. (" + $runUrl + ")"),
                         wrap: true,
                         size: "Medium"
                       },
