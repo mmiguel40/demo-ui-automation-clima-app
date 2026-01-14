@@ -21,10 +21,16 @@ public class ConfigReader {
     }
 
     public static String getProperty(String key) {
+        if (System.getProperty(key) != null) {
+            return System.getProperty(key);
+        }
         return properties.getProperty(key);
     }
 
     public static boolean getBooleanProperty(String key) {
+        if (System.getProperty(key) != null) {
+            return Boolean.parseBoolean(System.getProperty(key));
+        }
         return Boolean.parseBoolean(properties.getProperty(key));
     }
 }
