@@ -2,6 +2,7 @@ package com.example.automation.pages.actions;
 
 import com.example.automation.base.BasePage;
 import com.example.automation.pages.locators.SearchMapLocators;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SearchMapPage extends BasePage {
@@ -45,6 +46,14 @@ public class SearchMapPage extends BasePage {
 
         } catch (Exception e) {
             System.out.println("Map NOT found after retry. Current URL: " + driver.getCurrentUrl());
+            // Try to find any error message on page
+            try {
+                String bodyText = driver.findElement(By.tagName("body")).getText();
+                System.out
+                        .println("Page Body Text Snippet: " + bodyText.substring(0, Math.min(bodyText.length(), 500)));
+            } catch (Exception ex) {
+                System.out.println("Could not retrieve body text.");
+            }
             System.out.println("Page Source Snippet: "
                     + driver.getPageSource().substring(0, Math.min(driver.getPageSource().length(), 2000)));
             return false;
