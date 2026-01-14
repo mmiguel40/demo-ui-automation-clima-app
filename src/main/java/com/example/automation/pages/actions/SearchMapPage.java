@@ -16,7 +16,7 @@ public class SearchMapPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(SearchMapLocators.SEARCH_BUTTON));
         driver.findElement(SearchMapLocators.SEARCH_BUTTON).click();
     }
-    
+
     public void clickClearButton() {
         wait.until(ExpectedConditions.elementToBeClickable(SearchMapLocators.CLEAR_BUTTON));
         driver.findElement(SearchMapLocators.CLEAR_BUTTON).click();
@@ -24,13 +24,15 @@ public class SearchMapPage extends BasePage {
 
     public boolean isMapDisplayed() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(SearchMapLocators.MAP_CONTAINER));
+            // Increase timeout for map loading in CI environments
+            new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(60))
+                    .until(ExpectedConditions.visibilityOfElementLocated(SearchMapLocators.MAP_CONTAINER));
             return driver.findElement(SearchMapLocators.MAP_CONTAINER).isDisplayed();
         } catch (Exception e) {
             return false;
         }
     }
-    
+
     public boolean isSearchButtonEnabled() {
         return driver.findElement(SearchMapLocators.SEARCH_BUTTON).isEnabled();
     }
