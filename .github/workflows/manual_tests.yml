@@ -185,6 +185,12 @@ jobs:
                       },
                       {
                         type: "TextBlock",
+                        text: ("📄 **Reporte HTML**: [Descargar desde Artefactos](" + $runUrl + ")"),
+                        wrap: true,
+                        size: "Medium"
+                      },
+                      {
+                        type: "TextBlock",
                         text: ("📢 Notificando a: " + $mentionText),
                         size: "Small",
                         isSubtle: true,
@@ -195,7 +201,7 @@ jobs:
                     actions: [
                       {
                         type: "Action.OpenUrl",
-                        title: "🔗 Ver Reporte HTML",
+                        title: "📂 Ver Artefactos",
                         url: $runUrl
                       }
                     ]
